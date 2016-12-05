@@ -76,7 +76,7 @@ printf "\n"
  genfstab -U /mnt > /mnt/etc/fstabs
 
 echo "Just for fun: 5 Best mirrors"
-cat /mnt/etc/fstabs
+cat /mnt/etc/fstab
 printf "\n"
 
 cp 1_InstallPart2.sh /mnt/root/
