@@ -5,7 +5,7 @@ echo "Vítej v Marhyho instalátoru ArchServeru - UEFI Edition"
 echo "######################################################"
 printf "\n\n"
 
-echo "Testuji Internet"
+echo "Testuji Internet..."
 ping  -c 3 www.google.com
 
 echo "######################################################"
@@ -62,18 +62,18 @@ echo "######################################################"
 printf "\n"
 
 read -r -p "Do you want to also install base-devel package (useful if you build packages)? [Y/n]" response
- response=${response,,}
- if [[ $response =~ ^(yes|y| ) ]]; then
-    pacstrap -i /mnt base base-devel
- else
- 	pacstrap -i /mnt base
- fi
+response=${response,,}
+if [[ $response =~ ^(yes|y| ) ]]; then
+	pacstrap -i /mnt base base-devel
+else
+	pacstrap -i /mnt base
+fi
 
 printf "\n"
 echo "Part 2 - Generating fstab"
 echo "######################################################"
 printf "\n"
- genfstab -U /mnt > /mnt/etc/fstabs
+genfstab -U /mnt > /mnt/etc/fstabs
 
 echo "Just for fun: 5 Best mirrors"
 cat /mnt/etc/fstab
