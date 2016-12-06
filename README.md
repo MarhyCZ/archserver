@@ -2,7 +2,7 @@
 Install scripts for easier and faster deployment of my Home Arch Linux Server(HALS). Brought to you by Marhy.
 
 #Usage
-Install scripts will consists of several parts.
+Install scripts will consist of several parts.
 
 1. Base instalation - install of the system
 Just boot the Arch Linux install ISO and start a 1_Install.sh file.
