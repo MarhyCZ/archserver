@@ -5,8 +5,8 @@ echo "Vítej v Marhyho instalátoru ArchServeru - UEFI Edition"
 echo "######################################################"
 printf "\n\n"
 
-echo "Testuji Internet..."
-ping  -c 3 www.google.com
+echo "Testuji Internet"
+ping  -c 3 www.google.com &&
 
 echo "######################################################"
 echo "Part 1 - Disks"
@@ -41,9 +41,9 @@ echo "Part 1 - Mounting partitions"
 echo "######################################################"
 printf "\n"
 
-mount /dev/${DRIVE}2 /mnt
-mkdir -p /mnt/boot
-mount /dev/${DRIVE}1 /mnt/boot
+mount /dev/${DRIVE}2 /mnt &&
+mkdir -p /mnt/boot &&
+mount /dev/${DRIVE}1 /mnt/boot &&
 
 printf "\n"
 echo "######################################################"
@@ -53,7 +53,7 @@ printf "\n\n"
 
 
 echo "Just for fun: 5 Best mirrors"
-cat /etc/pacman.d/mirrorlist | grep -e '^Server' | head -5
+cat /etc/pacman.d/mirrorlist | grep -e '^Server' | head -5 &&
 printf "\n"
 
 printf "\n"
@@ -62,21 +62,21 @@ echo "######################################################"
 printf "\n"
 
 read -r -p "Do you want to also install base-devel package (useful if you build packages)? [Y/n]" response
-response=${response,,}
-if [[ $response =~ ^(yes|y| ) ]]; then
-	pacstrap -i /mnt base base-devel
-else
-	pacstrap -i /mnt base
-fi
+ response=${response,,}
+ if [[ $response =~ ^(yes|y| ) ]]; then
+    pacstrap -i /mnt base base-devel
+ else
+ 	pacstrap -i /mnt base
+ fi
 
 printf "\n"
 echo "Part 2 - Generating fstab"
 echo "######################################################"
 printf "\n"
-genfstab -U /mnt > /mnt/etc/fstabs
+ genfstab -U /mnt > /mnt/etc/fstab &&
 
-echo "Just for fun: 5 Best mirrors"
-cat /mnt/etc/fstab
+echo "Just a test of fstab"
+cat /mnt/etc/fstab &&
 printf "\n"
 
 cp 1_InstallPart2.sh /mnt/root/
